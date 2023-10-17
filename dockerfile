@@ -1,9 +1,13 @@
 # syntax=docker/dockerfile:1
-FROM nvidia/cuda:11.0-cudnn8-devel-ubuntu18.04
+FROM nvidia/cuda-arm64:11.1.1-cudnn8-devel-ubuntu18.04
+
+# Fetch cuda signing key
+# See https://forums.developer.nvidia.com/t/notice-cuda-linux-repository-key-rotation/212772
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/sbsa/3bf863cc.pub
 
 # Miniconda archive to install
 ARG miniconda_version="4.9.2"
-ARG miniconda_checksum="122c8c9beb51e124ab32a0fa6426c656"
+ARG miniconda_checksum="b6fbba97d7cef35ebee8739536752cd8b8b414f88e237146b11ebf081c44618f"
 ARG conda_version="4.9.2"
 ARG PYTHON_VERSION=default
 
@@ -23,7 +27,7 @@ ENV MINICONDA_VERSION="${miniconda_version}" \
 # General OS dependencies 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
- && apt-get install -yq --no-install-recommends \
+    && apt-get install -yq --no-install-recommends \
     wget \
     apt-utils \
     unzip \
@@ -36,14 +40,14 @@ RUN apt-get update \
     run-one \
     nano \
     libgl1-mesa-glx \
- && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Miniconda installation
 WORKDIR /tmp
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py38_${MINICONDA_VERSION}-Linux-x86_64.sh && \
-    echo "${miniconda_checksum} *Miniconda3-py38_${MINICONDA_VERSION}-Linux-x86_64.sh" | md5sum -c - && \
-    /bin/bash Miniconda3-py38_${MINICONDA_VERSION}-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-py38_${MINICONDA_VERSION}-Linux-x86_64.sh && \
+RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-py38_${MINICONDA_VERSION}-Linux-aarch64.sh && \
+    echo "${miniconda_checksum} *Miniconda3-py38_${MINICONDA_VERSION}-Linux-aarch64.sh" | shasum -a 256 - && \
+    /bin/bash Miniconda3-py38_${MINICONDA_VERSION}-Linux-aarch64.sh -f -b -p $CONDA_DIR && \
+    rm Miniconda3-py38_${MINICONDA_VERSION}-Linux-aarch64.sh && \
     # Conda configuration see https://conda.io/projects/conda/en/latest/configuration.html
     echo "conda ${CONDA_VERSION}" >> $CONDA_DIR/conda-meta/pinned && \
     conda install --quiet --yes "conda=${CONDA_VERSION}" && \
