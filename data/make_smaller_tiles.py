@@ -15,10 +15,10 @@ from torch.utils.data import DataLoader, Dataset
 
 config = {
     'batch_size': 1,
-    'data_dir': './xBD/',
-    'sliced_data_dir': './final_mdl_all_disaster_splits/',
-    'disaster_splits_json': './nlrc.building-damage-assessment/constants/splits/final_mdl_all_disaster_splits.json',
-    'disaster_splits_json_sliced': './nlrc.building-damage-assessment/constants/splits/final_mdl_all_disaster_splits_sliced_img_augmented_20.json'
+    'data_dir': './',
+    'sliced_data_dir': './raw/all_disaster_splits/',
+    'disaster_splits_json': './constants/splits/all_disaster_splits.json',
+    'disaster_splits_json_sliced': './constants/splits/all_disaster_splits_sliced_img_augmented_20.json'
 }
 
 logging.basicConfig(
