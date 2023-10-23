@@ -1,0 +1,30 @@
+{
+    "hurricane-florence": {
+        "test": [
+            "raw/hold/labels/hurricane-florence_00000006_0",
+            "raw/hold/labels/hurricane-florence_00000089_0",
+            "raw/hold/labels/hurricane-florence_00000097_0",
+            "raw/hold/labels/hurricane-florence_00000124_0",
+            "raw/hold/labels/hurricane-florence_00000202_0",
+            "raw/hold/labels/hurricane-florence_00000214_0",
+            "raw/hold/labels/hurricane-florence_00000234_0",
+            "raw/hold/labels/hurricane-florence_00000258_0",
+            "raw/hold/labels/hurricane-florence_00000261_0",
+            "raw/hold/labels/hurricane-florence_00000271_0"
+        ]
+    },
+    "hurricane-harvey": {
+        "test": [
+            "raw/hold/labels/hurricane-harvey_00000106_0",
+            "raw/hold/labels/hurricane-harvey_00000198_0",
+            "raw/hold/labels/hurricane-harvey_00000201_0",
+            "raw/hold/labels/hurricane-harvey_00000209_0",
+            "raw/hold/labels/hurricane-harvey_00000403_0",
+            "raw/hold/labels/hurricane-harvey_00000459_0",
+            "raw/test/labels/hurricane-harvey_00000162_0",
+            "raw/test/labels/hurricane-harvey_00000297_0",
+            "raw/test/labels/hurricane-harvey_00000301_0",
+            "raw/test/labels/hurricane-harvey_00000314_0"
+        ]
+    }
+}
