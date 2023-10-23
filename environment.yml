@@ -10,7 +10,7 @@ channels:
   - pytorch
 
 dependencies:
-  - python==3.7.9
+  - python=3.9
   - pip==21.0.1
   - rasterio==1.1.0
   - gdal==3.0.2
@@ -18,7 +18,7 @@ dependencies:
   - numpy==1.20.1
   - nb_conda_kernels==2.3.1
   - tqdm==4.56.2
-  - humanfriendly==9.1
+  - humanfriendly==10.0
   - geopandas==0.8.1
   - shapely==1.7.1
   - scikit-learn==0.23.2
@@ -26,11 +26,11 @@ dependencies:
   - tensorflow>=1.15.0
   - pytorch 
   - torchvision
-  - cudatoolkit=11.1
+  - cuda-version==12.2
   - pip:
     - azure-storage-blob==12.7.1
-    - opencv-python==4.5.1.48
+    - opencv-python==4.8.1.78
     - pandas==1.1.5
     - matplotlib==3.3.4
-    - scikit-image==0.17.2
+    - scikit-image==0.22.0
 
