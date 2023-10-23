@@ -8,10 +8,10 @@ import random
 import sys
 from glob import glob
 from multiprocessing.pool import ThreadPool
-from PIL import Image
-from torch.utils.data import DataLoader
-from torch.utils.data import Dataset
+
 import torchvision.transforms.functional as TF
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
 
 config = {
     'batch_size': 1,
